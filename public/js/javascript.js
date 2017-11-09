@@ -20,3 +20,7 @@ $(window).resize(function(){
 //  SOCKET.IO INIT  //
 //////////////////////
 var socket = io();
+
+socket.on('connect', function () {
+  console.log('Connected to socket.io server!');
+});
