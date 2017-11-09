@@ -29,3 +29,15 @@ socket.on('message', function (message) {
   console.log('New Message:');
   console.log(message.text);
 });
+
+// Handles Submitting New Message
+var $form = jQuery('#message-form');
+
+$form.on('submit', function (event) {
+  event.preventDefault();
+  var $txtInput = $form.find('input[name=message]');
+  socket.emit('message', {
+    text: $txtInput.val() //pulls text from an input on $form named 'message' (our input.type = text name = message)
+  });
+  $txtInput.val('');
+});
