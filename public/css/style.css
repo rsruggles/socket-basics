@@ -1,0 +1,141 @@
+/* GENERAL LAYOUT STYLES */
+header, footer {
+  padding: 0;
+  margin: 0;
+  display: block;
+  width: 100%;
+}
+
+header {
+  height: 70px;
+  border-bottom: 1px solid #e7e7e7;
+}
+
+body {
+  font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+/* HEADER LAYOUT STYLES */
+.img-brand {
+  height: inherit;
+  display: inline-block;
+  line-height: 70px;
+}
+
+nav {
+  height: inherit;
+  display: inline-block;
+  float: right;
+}
+
+li.menu-item {
+  list-style: none;
+}
+li.menu-item:hover {
+  transition: all .2s ease-in;
+  transition: all .2s ease-out;
+  background-color: #e7e7e7;
+}
+li.menu-item a {
+  text-decoration: none;
+}
+
+
+/* Utility Classes */
+.bg-white {
+  background-color: #fff;
+}
+
+.txt-left {
+  text-align: left;
+}
+
+.txt-center {
+  text-align: center;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.marg-left {
+  margin-left: 15px;
+}
+
+
+
+/* DESKTOP CSS STYLES */
+@media only screen and (min-width: 681px) {
+  ul.menu {
+    width: 100%;
+    display: inline-block;
+  }
+
+  li.menu-item {
+    height: inherit;
+    float: left;
+    overflow: hidden;
+  }
+  
+  li.menu-item a {
+    line-height: 70px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 50%;
+    padding-bottom: 50%;
+  }
+  
+  .menu-btn {
+    display: none;
+  }
+  
+  /* Page Container */
+  .container {
+    max-width: 900px;
+    margin: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+
+
+/* MOBILE CSS STYLES */
+@media only screen and (max-width: 680px) {
+  nav {
+    display: block;
+    position: absolute;
+    width: 100%;
+    left: 0;
+  }
+  ul.menu {
+    display: none;
+    width: 100%;
+    line-height: 45px;
+    background-color: #f4f4f4;
+  }
+  li.menu-item {
+    width: 100%;
+  }
+  li.menu-item a {
+    padding-left: 15px;
+    display: block;
+    width: 100%;
+  }
+  
+  .menu-btn {
+    float: right;
+    cursor: pointer;
+    line-height: 70px;
+  }
+  
+  
+  /* Page Container */
+  .container {
+    padding: 0;
+    margin-left: 15px;
+    margin-right: 15px;
+    max-width: 100%;
+  }
+  
+  }
