@@ -14,7 +14,8 @@ io.on('connection', function (socket) { // socket passed is associated with the 
   socket.on('message', function (message) {
     console.log('Message recieved: ' + message.text);
     // io.emit sends to everyone
-    socket.broadcast.emit('message', message); // socket.emit sends to everyone except the sender
+    //socket.broadcast.emit('message', message); // socket.emit sends to everyone except the sender
+    io.emit('message', message);
   });
   
   socket.emit('message', {
