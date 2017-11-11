@@ -10,6 +10,28 @@ app.use(express.static(__dirname + '/public'));
 
 var clientInfo = {};
 
+function sendCurrentUsers(socket) {
+  var info = clientInfo[socket.id];
+  var users = [];
+  
+  if (typeof info === 'undefined') {
+    return;
+  }
+  
+  Object.keys(clientInfo).forEach(function (socketId) {
+    var userInfo = clientInfo[socketId];
+    
+    if (info.room === userInfo.room) {
+      users.push(userInfo.name);
+    }
+  });
+  socket.emit('message', {
+    name: 'System',
+    text: 'Current users: ' + users.join(', '),
+    timestamp: moment().valueOf
+  });
+}
+
 // io connection event. We log a console message when a user joins the connection here
 // there are plenty of other io events in their documentation
 io.on('connection', function (socket) { // socket passed is associated with the individual users socket, but the socket scope isn't required for basic functionality
@@ -42,8 +64,15 @@ io.on('connection', function (socket) { // socket passed is associated with the 
     console.log('Message recieved: ' + message.text);
     // io.emit sends to everyone
     //socket.broadcast.emit('message', message); // socket.emit sends to everyone except the sender
-    message.timestamp = moment().valueOf();
-    io.to(clientInfo[socket.id].room).emit('message', message);
+    
+    if (message.text === '@currentUsers') {
+      sendCurrentUsers(socket);
+    } else {
+      message.timestamp = moment().valueOf();
+      io.to(clientInfo[socket.id].room).emit('message', message);
+    }
+    
+    
   });
   
   // timestamp property
