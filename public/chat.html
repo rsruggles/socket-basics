@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
     <!-- Page Title -->
-    <title>Socket.io Basics</title>
+    <title>Socket.io Chat</title>
     
     <!-- FontAwesome CSS -->
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
@@ -33,31 +33,43 @@
     
     <!-- Document Main -->
     <main>
-      
-      <div class="row">
-        <div class="container">
-          <div class="col-12">
-            <a href="index.html">Change settings</a><br /><br >
-            <h1 class="room-title"></h1>
-            <div class="messages">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 bg-gray">
+            <h5 class="txt-right"><a href="index.html">Change settings</a><br /></h5>
+            <h1>Room: <i class="room-title"></i></h1>
+            <br />
+            <div id="msgBody" class="messages">
               <!--  MESSAGES HERE  -->
             </div>
           </div>
         </div>
-      </div>
-      
-      <div class="row">
-        <div class="container">
+
+        <div class="row bg-gray">
           <div class="col-12">
             <form id="message-form">
-              <input type="text" name="message"/>
-              <input type="submit"/>
-            </form>
+                <input id="chatInput" type="text" name="message"/>
+
+                <button id="chatSubmit" type="submit">
+                  <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                </button>
+            </form>      
           </div>
         </div>
       </div>
-    
-    
+
+      <!-- TO FINSIH LATER
+      <div class="row">
+        <div class="container">
+          <div class="col-12">
+            <h4>Lobby Users</h4>
+            <ul class="users">
+              USER LIST GOES HERE
+            </ul>
+          </div>
+        </div>
+      </div>
+      -->
     </main>
     
     <!-- Document Footer -->

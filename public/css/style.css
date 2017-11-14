@@ -54,12 +54,60 @@ li.menu-item a {
   text-align: center;
 }
 
+.txt-right {
+  text-align: right;
+}
+
 .full-width {
   width: 100%;
 }
 
 .marg-left {
   margin-left: 15px;
+}
+
+.messages {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.bg-gray {
+  background-color: #c4c4c4;
+}
+
+.messages {
+  background-color: #e9e9e9;
+  padding: 10px;
+  height: 400px;
+  overflow-y: scroll;
+}
+
+#chatInput {
+  width: 100%;
+  margin: 0;
+  z-index: 1;
+  height: 27px;
+  border: 1px solid #e0e0e0;
+  background-color: #e9e9e9;
+  border-radius: 3px;
+  color: black;
+}
+#chatSubmit {
+  background-color: #e0e0e0;
+  border: 1px solid #e0e0e0;
+  border-left: 1px solid #d0d0d0;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  color: blue;
+  position: absolute;
+  z-index: 100;
+  margin-left: -32px;
+  height: 27px;
+  padding-left: 7px;
+  padding-right: 7px;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 
@@ -83,6 +131,10 @@ li.menu-item a {
     padding-right: 15px;
     padding-top: 50%;
     padding-bottom: 50%;
+  }
+  
+  body {
+    padding-top: 70px;
   }
   
   .menu-btn {
@@ -121,6 +173,9 @@ li.menu-item a {
     padding-left: 15px;
     display: block;
     width: 100%;
+  }
+  body {
+    padding-top: 0px;
   }
   
   .menu-btn {

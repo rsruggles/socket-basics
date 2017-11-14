@@ -16,6 +16,17 @@ $(window).resize(function(){
   }
 });
 
+
+
+function scrollSmooth (id) {
+  var div = document.getElementById(id);
+  $('#' + id).animate({
+    scrollTop: div.scrollHeight - div.clientHeight
+  }, 300);
+}
+
+
+
 //////////////////////
 //  SOCKET.IO INIT  //
 //////////////////////
@@ -41,9 +52,16 @@ socket.on('message', function (message) {
   console.log('New Message:');
   console.log(message.text);
   
-  $message.append('<p><strong>' + message.name + ' ' + momentTimeStamp.local().format('h:mm a') + '</strong></p>');
-  $message.append('<p>' + message.text + '</p>');
+  $message.append('<p>' + momentTimeStamp.local().format('h:mm') + ' <strong>' + message.name + ':</strong> ' +  message.text + '</p><br/>');
+  scrollSmooth('msgBody');
+  //$message.append('<p>' + message.text + '</p>');
 });
+
+//socket.on('userUpdate', function (userList) {
+//  var $users = jQuery('.users');  
+//  $users.html(userList.users);
+//  console.log('USERS: ' + userList.users)
+//});
 
 // Handles Submitting New Message
 var $form = jQuery('#message-form');
